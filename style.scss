@@ -156,8 +156,9 @@ body{
                 .btn-wrapper{
                     user-select: none;
                     display: flex;
+                    width: 100%;
                     div{
-                        width: 400px;
+                        width: 100%;
                         .btn-container1{
                             display: flex;
                             gap: 10px;
