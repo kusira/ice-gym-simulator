@@ -1,0 +1,328 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  width: 100%;
+  font-family: "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+body header {
+  width: 100%;
+  height: 80px;
+  background: #2f508d;
+}
+body header .header-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 100%;
+}
+body header .header-container h1 {
+  margin-top: 18px;
+  margin-left: 20px;
+  display: inline-block;
+  transform: translateY(12px);
+  font-size: 24px;
+  color: #fff;
+}
+body main {
+  max-width: 1200px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+  margin: 0 auto;
+  min-height: 800px;
+}
+body main .main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
+}
+@media screen and (max-width: 800px) {
+  body main .main-container {
+    flex-direction: column;
+  }
+}
+body main .main-container .screen {
+  width: 500px;
+  padding-left: 20px;
+  padding-right: 40px;
+  border-right: 1px solid #ccc;
+}
+@media screen and (max-width: 800px) {
+  body main .main-container .screen {
+    padding-right: 20px;
+    margin: 0 auto;
+    border-right: none;
+  }
+}
+@media screen and (max-width: 550px) {
+  body main .main-container .screen {
+    width: 320px;
+  }
+}
+body main .main-container .screen .text {
+  display: inline-block;
+  line-height: 1.5;
+  font-size: 24px;
+  transform: translateY(-5px);
+  margin-left: 5px;
+  margin-right: 20px;
+}
+body main .main-container .screen #number {
+  margin-top: 30px;
+  width: 80px;
+  font-size: 48px;
+}
+@media screen and (max-width: 550px) {
+  body main .main-container .screen #number {
+    margin-top: 14px;
+  }
+}
+body main .main-container .screen #check {
+  margin-left: 450px;
+  transform: translateY(6px);
+  font-size: 18px;
+}
+@media screen and (max-width: 550px) {
+  body main .main-container .screen #check {
+    margin-left: 0;
+  }
+}
+body main .main-container .screen .grid {
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 550px) {
+  body main .main-container .screen .grid {
+    height: 320px;
+  }
+}
+body main .main-container .screen .grid .item {
+  width: 125px;
+  height: 125px;
+  outline: 1px solid #000;
+}
+body main .main-container .screen .grid .item.start {
+  background: rgb(15, 15, 255);
+}
+body main .main-container .screen .grid .item.goal {
+  background: rgb(255, 17, 17);
+}
+body main .main-container .screen .grid .item.wall {
+  background: rgb(0, 0, 0);
+}
+body main .main-container .screen .grid .item.ice {
+  background: rgb(169, 228, 255);
+}
+body main .main-container .screen .grid .item.route {
+  background: rgb(255, 255, 255);
+}
+body main .main-container .screen .grid .item.up {
+  background-image: url(img/arrow.png);
+  background-size: cover;
+  transform: rotateZ(180deg);
+}
+body main .main-container .screen .grid .item.right {
+  background-image: url(img/arrow.png);
+  background-size: cover;
+  transform: rotateZ(270deg);
+}
+body main .main-container .screen .grid .item.down {
+  background-image: url(img/arrow.png);
+  background-size: cover;
+  transform: rotateZ(0deg);
+}
+body main .main-container .screen .grid .item.left {
+  background-image: url(img/arrow.png);
+  background-size: cover;
+  transform: rotateZ(90deg);
+}
+body main .main-container .screen .grid .item.hidden {
+  background-image: none;
+}
+body main .main-container .screen .check-path {
+  margin-top: 16px;
+  display: flex;
+}
+body main .main-container .screen .check-path label {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 20px;
+  margin-top: 10px;
+  display: block;
+}
+body main .main-container .screen .check-path #path-onoff {
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+}
+body main .main-container .screen .btn-wrapper {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: flex;
+}
+body main .main-container .screen .btn-wrapper div {
+  width: 400px;
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 div {
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 div p {
+  margin-top: 4px;
+  text-align: center;
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 .btn-route {
+  border: 1px solid #000;
+  background: white;
+  box-shadow: 0 6px 0 rgb(171, 170, 170);
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 .btn-route.active {
+  background: rgb(202, 202, 202);
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgb(171, 170, 170);
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 .btn-wall {
+  background: rgb(113, 113, 113);
+  box-shadow: 0 6px 0 rgb(71, 71, 71);
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 .btn-wall p {
+  color: white;
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 .btn-wall.active {
+  background: rgb(87, 87, 87);
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgb(71, 71, 71);
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 .btn-ice {
+  background: rgb(166, 223, 246);
+  box-shadow: 0 6px 0 rgb(146, 178, 241);
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 .btn-ice p {
+  color: white;
+}
+body main .main-container .screen .btn-wrapper div .btn-container1 .btn-ice.active {
+  background: rgb(128, 164, 247);
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgb(146, 178, 241);
+}
+body main .main-container .screen .btn-wrapper div .btn-container2 {
+  cursor: pointer;
+  display: flex;
+  gap: 20px;
+}
+body main .main-container .screen .btn-wrapper div .btn-container2 div {
+  margin-top: 20px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+}
+body main .main-container .screen .btn-wrapper div .btn-container2 div p {
+  margin-top: 16px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-align: center;
+  color: white;
+}
+body main .main-container .screen .btn-wrapper div .btn-container2 div.btn-set-start {
+  background: rgb(125, 143, 243);
+  box-shadow: 0 6px 0 rgb(50, 121, 197);
+}
+body main .main-container .screen .btn-wrapper div .btn-container2 div.btn-set-start.active {
+  background: rgb(81, 113, 242);
+  transform: translateY(4px);
+  box-shadow: 0 2px 0rgb 50, 121, 197;
+}
+body main .main-container .screen .btn-wrapper div .btn-container2 div.btn-set-goal {
+  background: rgb(255, 117, 117);
+  box-shadow: 0 6px 0 rgb(170, 74, 52);
+}
+body main .main-container .screen .btn-wrapper div .btn-container2 div.btn-set-goal.active {
+  background: rgb(189, 26, 26);
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgb(170, 74, 52);
+}
+body main .main-container .screen .btn-reset {
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgb(255, 86, 86);
+  box-shadow: 0 6px 0 rgb(177, 49, 49);
+}
+body main .main-container .screen .btn-reset p {
+  padding-top: 42px;
+  margin-left: 20px;
+  color: white;
+}
+body main .main-container .screen .btn-reset:active {
+  background: rgb(190, 66, 66);
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgb(177, 49, 49);
+}
+body main .main-container .infomation {
+  flex: 1;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+@media screen and (max-width: 800px) {
+  body main .main-container .infomation {
+    margin-top: 40px;
+  }
+}
+body main .main-container .infomation h2 {
+  line-height: 1.5;
+  position: relative;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 30px;
+  margin-left: 24px;
+}
+@media screen and (max-width: 800px) {
+  body main .main-container .infomation h2 {
+    margin-top: 20px;
+  }
+}
+body main .main-container .infomation h2::before {
+  position: absolute;
+  content: "";
+  top: 10px;
+  left: -24px;
+  background: rgb(170, 227, 255);
+  width: 6px;
+  height: 30px;
+}
+body main .main-container .infomation p {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  line-height: 2;
+}
+body footer {
+  margin-top: 100px;
+  width: 100%;
+  text-align: center;
+}
+body footer small {
+  color: rgb(144, 144, 144);
+}/*# sourceMappingURL=style.css.map */

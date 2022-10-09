@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>ice gym simulator</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Ice Gym Simulator</h1>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="screen">
+                <div>
+                    <p class="text">N×Nマスの盤面を生成する(4~10) : </p>
+                    <input type="number" name="numbox" id="number" value="4" min="4" max="10">
+                    <input type="button" value="OK" id="check">
+                </div>
+                <div class="grid"></div>
+                <div class="check-path">
+                    <label for="path-onoff">経路の表示</label>
+                    <input type="checkbox" name="chackbox" id="path-onoff" checked>
+                </div>
+                <div class="btn-wrapper">
+                    <div>
+                        <div class="btn-container1">
+                            <div class="btn-route"><p>道</p></div>
+                            <div class="btn-wall"><p>壁</p></div>
+                            <div class="btn-ice"><p>氷</p></div>
+                        </div>
+                        <div class="btn-container2">
+                            <div class="btn-set-start"><p>スタートを設置</p></div>
+                            <div class="btn-set-goal"><p>ゴールを設置</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-reset"><p>リセット</p></div>
+            </div>
+            <div class="infomation">
+                <h2>Ice Gym Simulaterについて</h2>
+                <p>迷路のスタートからゴールまでをつなぐ経路を探すシミュレーターです。<br>
+                    また、ポケモンジムの迷路であるような氷の上で方向転換が出来ないというギミックを追加しました。</p>
+                <h2>各マスの役割とその設置方法</h2>
+                <p><span style="font-weight:600;">道</span> : 道マス(白色)のマスは通ることが出来ます。<br>
+                <span style="font-weight:600;">壁</span> : 壁マス(黒色)のマスは通ることが出来ません。<br>
+                <span style="font-weight:600;">氷</span> : 氷マス(水色)上では進行方向を変更出来ません。<br>
+                <span style="font-weight:600;">スタート</span> : スタートは迷路中にひとつしか置けません。<br>
+                <span style="font-weight:600;">ゴール</span> : ゴールは迷路中にひとつしか置けません。<br>
+                <span style="font-weight:600;">リセット</span> : 迷路を初期化します。<br>
+                <span style="font-weight:600;">経路の表示</span> : 経路を表示します。<br></p>
+                <p>それぞれのマスに対応したボタンを押して、マスをクリックするとそのマスが変わります。</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <small>@ 2022 kusira</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,312 @@
+@mixin tb{
+    @media screen and(max-width:800px){
+        @content;
+    }
+}
+@mixin sp{
+    @media screen and(max-width:550px){
+        @content;
+    }
+}
+body{
+    margin: 0;
+    width: 100%;
+    font-family: "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    header{
+        width: 100%;
+        height: 80px;
+        background: #2f508d;
+        .header-container{
+            margin: 0 auto;
+            max-width: 1200px;
+            height: 100%;
+            h1{
+                margin-top: 18px;
+                margin-left: 20px;
+                display: inline-block;
+                transform: translateY(12px);
+                font-size: 24px;
+                color: #fff;
+            }
+        }
+    }
+    main{
+        max-width: 1200px;
+        margin-top: 30px;
+        margin-bottom: 100px;
+        margin: 0 auto;
+        min-height: 800px;
+        .main-container{
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 30px;
+            display: flex;
+            @include tb{
+                flex-direction: column;
+            }
+            .screen{
+                width: 500px;
+                padding-left: 20px;
+                padding-right: 40px;
+                border-right: 1px solid #ccc;
+                @include tb{
+                    padding-right: 20px;
+                    margin: 0 auto;
+                    border-right: none;
+                }
+                @include sp{
+                    width: 320px;
+                }
+                .text{
+                    display: inline-block;
+                    line-height: 1.5;
+                    font-size: 24px;
+                    transform: translateY(-5px);
+                    margin-left: 5px;
+                    margin-right: 20px;
+                }
+                #number{
+                    margin-top: 30px;
+                    width: 80px;
+                    font-size: 48px;
+                    @include sp{
+                        margin-top: 14px;
+                    }
+                }
+                #check{
+                    margin-left:450px;
+                    transform: translateY(6px);
+                    font-size: 18px;
+                    @include sp{
+                        margin-left: 0;
+                    }
+                }
+                .grid{
+                    cursor: pointer;
+                    margin-top: 20px;
+                    width: 100%;
+                    height: 500px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    @include sp{
+                        height: 320px;
+                    }
+                    .item{
+                        width: 125px;
+                        height: 125px;
+                        outline: 1px solid #000;
+                        &.start{
+                            background: rgb(15, 15, 255);
+                        }
+                        &.goal{
+                            background: rgb(255, 17, 17);
+                        }
+                        &.wall{
+                            background: rgb(0, 0, 0);
+                        }
+                        &.ice{
+                            background: rgb(169, 228, 255);
+                        }
+                        &.route{
+                            background: rgb(255, 255, 255);
+                        }
+                        &.up{
+                            background-image: url(img/arrow.png);
+                            background-size: cover;
+                            transform: rotateZ(180deg);
+                        }
+                        &.right{
+                            background-image: url(img/arrow.png);
+                            background-size: cover;
+                            transform: rotateZ(270deg);
+                        }
+                        &.down{
+                            background-image: url(img/arrow.png);
+                            background-size: cover;
+                            transform: rotateZ(0deg);
+                        }
+                        &.left{
+                            background-image: url(img/arrow.png);
+                            background-size: cover;
+                            transform: rotateZ(90deg);
+                        }
+                        &.hidden{
+                            background-image: none;
+                        }
+                    }
+                }
+                .check-path{
+                    margin-top: 16px;
+                    display: flex;
+                    label{
+                        cursor: pointer;
+                        user-select: none;
+                        font-size: 20px;
+                        margin-top: 10px;
+                        display: block;
+                    }
+                    #path-onoff{
+                        cursor: pointer;
+                        margin-left: 10px;
+                        margin-top: 10px;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+                .btn-wrapper{
+                    user-select: none;
+                    display: flex;
+                    div{
+                        width: 400px;
+                        .btn-container1{
+                            display: flex;
+                            gap: 10px;
+                            margin: 0 auto;
+                            margin-top: 10px;
+                            div{
+                                cursor: pointer;
+                                width: 100px;
+                                height: 30px;
+                                border-radius: 10px;
+                                p{
+                                    margin-top: 4px;
+                                    text-align: center;
+                                }
+                            }
+                            .btn-route{
+                                border: 1px solid #000;
+                                background: white;
+                                box-shadow: 0 6px 0 rgb(171, 170, 170);
+                                &.active{
+                                    background: rgb(202, 202, 202);
+                                    transform: translateY(4px);
+                                    box-shadow: 0 2px 0 rgb(171, 170, 170);
+                                }
+                            }
+                            .btn-wall{
+                                background: rgb(113, 113, 113);
+                                box-shadow: 0 6px 0 rgb(71, 71, 71);
+                                p{
+                                    color: white;
+                                }
+                                &.active{
+                                    background: rgb(87, 87, 87);
+                                    transform: translateY(4px);
+                                    box-shadow: 0 2px 0 rgb(71, 71, 71);
+                                }
+                            }
+                            .btn-ice{
+                                background: rgb(166, 223, 246);
+                                box-shadow: 0 6px 0 rgb(146, 178, 241);
+                                p{
+                                    color: white;
+                                }
+                                &.active{
+                                    background: rgb(128, 164, 247);
+                                    transform: translateY(4px);
+                                    box-shadow: 0 2px 0 rgb(146, 178, 241);
+                                }
+                            }
+                        }
+                        .btn-container2{
+                            cursor: pointer;
+                            display: flex;
+                            gap: 20px;
+                            div{
+                                margin-top: 20px;
+                                width: 150px;
+                                height: 50px;
+                                border-radius: 10px;
+                                p{
+                                    margin-top: 16px;
+                                    user-select: none;
+                                    text-align: center;
+                                    color: white;
+                                }
+                                &.btn-set-start{
+                                    background: rgb(125, 143, 243);
+                                    box-shadow: 0 6px 0 rgb(50, 121, 197);
+                                    &.active{
+                                        background: rgb(81, 113, 242);
+                                        transform: translateY(4px);
+                                        box-shadow: 0 2px 0rgb(50, 121, 197);;
+                                    }
+                                }
+                                &.btn-set-goal{
+                                    background: rgb(255, 117, 117);
+                                    box-shadow: 0 6px 0 rgb(170, 74, 52);
+                                    &.active{
+                                        background: rgb(189, 26, 26);
+                                        transform: translateY(4px);
+                                        box-shadow: 0 2px 0 rgb(170, 74, 52);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .btn-reset{
+                    cursor: pointer;
+                    margin-top: 20px;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    background: rgb(255, 86, 86);
+                    box-shadow: 0 6px 0 rgb(177, 49, 49);
+                    p{
+                        padding-top: 42px;
+                        margin-left: 20px;
+                        color: white;
+                    }
+                    &:active{
+                        background: rgb(190, 66, 66);
+                        transform: translateY(4px);
+                        box-shadow: 0 2px 0 rgb(177, 49, 49);
+                    }
+                }
+            }
+            .infomation{
+                flex: 1;
+                margin-left: 40px;
+                margin-right: 20px;
+                @include tb{
+                    margin-top: 40px;
+                }
+                h2{
+                    line-height: 1.5;
+                    position: relative;
+                    margin-top: 10px;
+                    font-weight: 600;
+                    font-size: 30px;
+                    margin-left: 24px;
+                    @include tb{
+                        margin-top: 20px;
+                    }
+                    &::before{
+                        position: absolute;
+                        content:"";
+                        top: 10px;
+                        left: -24px;
+                        background: rgb(170, 227, 255);
+                        width: 6px;
+                        height: 30px;
+                    }
+                }
+                p{
+                    font-size: 18px;
+                    margin-top: 20px;
+                    margin-bottom: 30px;
+                    line-height: 2.0;
+                }
+            }
+        }
+    }
+    footer{
+        margin-top: 100px;
+        width: 100%;
+        text-align: center;
+        small{
+            color: rgb(144, 144, 144);
+        }
+    }
+}
