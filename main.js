@@ -295,7 +295,6 @@
     }
     window.addEventListener("resize",()=>{
         if(window.innerWidth<=550){
-            window.location.reload()
             screenWidth = 320
         }
     })
@@ -303,6 +302,12 @@
     const numb = document.getElementById("number")
     const check = document.getElementById("check")
     check.addEventListener("click",()=>{
+        if(12<numb.value){
+            numb.value = "12"
+        }
+        if(numb.value<4){
+            numb.value = "4"
+        }
         n = numb.value
         let S = new Array(n);
         for(let i=0;i<n;i++){
