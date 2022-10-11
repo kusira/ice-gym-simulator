@@ -40,10 +40,10 @@
 
     function OutputRoute(S){
         let T = copyMatrix(S)
-        let si
-        let sj
-        let gi
-        let gj
+        let si = -1
+        let sj = -1
+        let gi = -1
+        let gj = -1
         for(let i=0;i<n;i++) {
             for(let j=0;j<n;j++){
                 if(S[i][j]=="S"){
@@ -177,6 +177,9 @@
             item.style.width=`${screenWidth/n}px`
             grid.appendChild(item)
             item.addEventListener("click",()=>{
+                if(item.classList.contains("start") || item.classList.contains("goal")){
+                    return
+                }
                 if(btnRoute.classList.contains("active")){
                     className = "route"
                     chr = "."
